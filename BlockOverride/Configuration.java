@@ -10,9 +10,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Configuration extends JavaPlugin {
 
-	// private static FileConfiguration modBlocks = null;
-	// private static File modBlocksFile = null;
-
 	public static void genConfig(Plugin plugin) {
 		plugin.getConfig().options().copyDefaults(true);
 		plugin.getConfig().set("blockOverride.glass", true);
