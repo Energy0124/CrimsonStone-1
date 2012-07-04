@@ -8,7 +8,6 @@ public class Piston extends BlockPiston {
 		super(i, j, flag);
 	}
 	
-    // Render as a full block
     public boolean b() {
         return true;
     }

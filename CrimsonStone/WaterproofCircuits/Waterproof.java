@@ -9,7 +9,6 @@ import com.github.Icyene.CrimsonStone.WaterproofCircuits.Listeners.OnLiquidSprea
 
 public class Waterproof extends JavaPlugin {
 	public static void load(Core plugin) {
-		System.out.println("-Loading WaterproofBlocks");
 		System.out.println("--Loading Listeners...");
 		try {
 			Bukkit.getServer().getPluginManager()

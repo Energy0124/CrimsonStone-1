@@ -17,7 +17,7 @@ public class ModBlocks {
 	static void modify(Plugin plugin) throws Exception {
 
 		List<org.bukkit.Material> blocks = Load.genOverrideArray(plugin);
-		
+
 		if (blocks.contains(org.bukkit.Material.GLASS)) {
 			Block.byId[Block.GLASS.id] = null;
 			Block.byId[Block.GLASS.id] = new Glass(Block.GLASS.id, 49,
@@ -112,6 +112,55 @@ public class ModBlocks {
 				Block.r[Block.PISTON_STICKY.id] = true;
 			}
 		}
+	}
+
+	static void forceUpdate() throws IllegalArgumentException,
+			IllegalAccessException, NoSuchFieldException, SecurityException {
+try {
+		Block.byId[Block.GLASS.id] = Block.GLASS;
+
+		Field glass = Material.SHATTERABLE.getClass().getDeclaredField("I");
+		glass.setAccessible(true);
+		glass.setBoolean(Material.SHATTERABLE, true);
+
+		Block.byId[Block.FENCE.id] = Block.FENCE;
+
+		Block.byId[Block.NETHER_FENCE.id] = Block.NETHER_FENCE;
+
+		Block.byId[Block.LEAVES.id] = Block.LEAVES;
+
+		Field leaves = Material.LEAVES.getClass().getDeclaredField("I");
+		leaves.setAccessible(true);
+		leaves.setBoolean(Material.LEAVES, true);
+
+		Block.byId[Block.GLOWSTONE.id] = Block.GLOWSTONE;
+
+		Field glowstone = Material.SHATTERABLE.getClass().getDeclaredField("I");
+		glowstone.setAccessible(true);
+		glowstone.setBoolean(Material.SHATTERABLE, true);
+
+		Block.byId[Block.TNT.id] = Block.TNT;
+
+		Field tnt = Material.TNT.getClass().getDeclaredField("I");
+		tnt.setAccessible(true);
+		tnt.setBoolean(Material.TNT, true);
+
+		Block.byId[Block.THIN_GLASS.id] = Block.THIN_GLASS;
+
+		Block.byId[Block.IRON_FENCE.id] = Block.IRON_FENCE;
+
+		Block.byId[Block.PISTON.id] = Block.PISTON;
+		Block.byId[Block.PISTON_STICKY.id] = Block.PISTON_STICKY;
+		Block.byId[Block.PISTON_EXTENSION.id] = Block.PISTON_EXTENSION;
+		Block.byId[Block.PISTON_MOVING.id] = Block.PISTON_MOVING;
+
+		Field pistons = Material.PISTON.getClass().getDeclaredField("I");
+		pistons.setAccessible(true);
+		pistons.setBoolean(Material.PISTON, true);
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
 	}
 
 }

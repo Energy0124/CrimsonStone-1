@@ -25,13 +25,22 @@ public class Override extends JavaPlugin {
 			ModBlocks.modify(plugin);
 			System.out.println("-BlockOverride loaded!");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// TODO Auto-generated catch blocks
 			e.printStackTrace();
-		}		
-		
+		}
 
 	}
 
-	
+	public static void unload() {
+		try {
+			ModBlocks.forceUpdate();
+			System.out.println("--Unloading overrides...");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out
+					.println("--Error unloading overrides. Contact vulcainus@gmail.com for support, or leave a comment on the CrimsonStone Bukkit page");
+		}
+	}
 
 }

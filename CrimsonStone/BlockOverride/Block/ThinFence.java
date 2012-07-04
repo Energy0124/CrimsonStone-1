@@ -10,8 +10,7 @@ public class ThinFence extends BlockThinFence {
 	public ThinFence(int i, int j, int k, Material material, boolean flag) {
 		super(i,j,k,material, flag);
 	}
-	
-    // Render as a full block
+
     public boolean b() {
         return true;
     }

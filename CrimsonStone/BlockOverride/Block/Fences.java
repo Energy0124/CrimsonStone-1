@@ -14,8 +14,7 @@ public class Fences extends BlockFence {
     public Fences(int i, int j, Material material) {
         super(i, j, material);
     }
-    
-    // Render as a full block
+
     public boolean b() {
         return true;
     }

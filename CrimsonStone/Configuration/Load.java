@@ -63,6 +63,8 @@ public class Load extends JavaPlugin {
 			overrideArray.add(Material.FENCE);
 		if (plugin.getConfig().getBoolean("blockOverride.netherFence"))
 			overrideArray.add(Material.NETHER_FENCE);
+		
+		System.out.println("Overriding " + overrideArray);
 		return overrideArray;
 
 	}
@@ -78,6 +80,7 @@ public class Load extends JavaPlugin {
 
 		if (plugin.getConfig().getBoolean("waterproofCircuits.redstoneWire"))
 			waterproofArray.add(Material.REDSTONE_WIRE);
+		waterproofArray.add(Material.REDSTONE_WIRE);
 		if (plugin.getConfig().getBoolean("waterproofCircuits.redstoneTorch")) {
 			waterproofArray.add(Material.REDSTONE_TORCH_ON);
 			waterproofArray.add(Material.REDSTONE_TORCH_OFF);
@@ -97,6 +100,7 @@ public class Load extends JavaPlugin {
 			waterproofArray.add(Material.DETECTOR_RAIL);
 		if (plugin.getConfig().getBoolean("waterproofCircuits.torch"))
 			waterproofArray.add(Material.TORCH);
+		System.out.println("Protecting " + waterproofArray);
 		return waterproofArray;
 
 	}
