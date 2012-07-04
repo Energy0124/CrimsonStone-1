@@ -1,4 +1,4 @@
-package com.github.Icyene.ElectroStone.BlockOverride.Block.Vegetation;
+package com.github.Icyene.CrimsonStone.BlockOverride.Block.Vegetation;
 
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockFlower;

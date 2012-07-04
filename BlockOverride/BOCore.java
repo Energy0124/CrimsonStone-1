@@ -1,13 +1,12 @@
-package com.github.Icyene.ElectroStone.BlockOverride;
+package com.github.Icyene.CrimsonStone.BlockOverride;
 
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.github.Icyene.ElectroStone.ElectroStone;
+import com.github.Icyene.CrimsonStone.Core;
 
 public class BOCore extends JavaPlugin {
-	public static void load(ElectroStone plugin) {
+	public static void load(Core plugin) {
 		System.out.println("--Loading Listeners...");
 		try {
 			Bukkit.getServer().getPluginManager()
@@ -22,7 +21,7 @@ public class BOCore extends JavaPlugin {
 		System.out.println("--Modding blocks...");
 
 		try {
-			ModBlocks.modify();
+			ModBlocks.modify(plugin);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

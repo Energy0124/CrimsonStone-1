@@ -1,12 +1,16 @@
-package com.github.Icyene.ElectroStone.BlockOverride;
+package com.github.Icyene.CrimsonStone.BlockOverride;
 
 import java.lang.reflect.Field;
+
+import java.util.List;
 
 import net.minecraft.server.Block;
 import net.minecraft.server.Material;
 
-import com.github.Icyene.ElectroStone.BlockOverride.Block.*;
-import com.github.Icyene.ElectroStone.BlockOverride.Block.Vegetation.*;
+import org.bukkit.plugin.Plugin;
+
+import com.github.Icyene.CrimsonStone.BlockOverride.Block.*;
+import com.github.Icyene.CrimsonStone.BlockOverride.Block.Vegetation.*;
 
 public class ModBlocks {
 
@@ -39,100 +43,108 @@ public class ModBlocks {
 
 	}
 
-	static void modify() throws Exception {
+	static void modify(Plugin plugin) throws Exception {
 
-		Block.byId[Block.GLASS.id] = null;
-		Block.byId[Block.GLASS.id] = new Glass(Block.GLASS.id, 49,
-				Material.SHATTERABLE, false).setHardness(0.3F)
-				.setSound(Block.j).a("glass");
+		// modBlocks = new File("modBlocks.yml");
+		// if(!modBlocks.exists()) {
+		// FileOutputStream s = new FileOutputStream(modBlocks);
 
-		Field field = Material.SHATTERABLE.getClass().getDeclaredField("I");
-		field.setAccessible(true);
-		field.setBoolean(Material.SHATTERABLE, false);
+		List<org.bukkit.Material> blocks = Configuration.genArray(plugin);
+		System.out.println(blocks);
 
-		Block.byId[Block.FENCE.id] = null;
-		Block.byId[Block.FENCE.id] = new Fences(Block.FENCE.id, 4)
-				.setHardness(2.0F).setResistance(5.0F).setSound(Block.e)
-				.a("fence");
+		if (blocks.contains(org.bukkit.Material.GLASS)) {
+			Block.byId[Block.GLASS.id] = null;
+			Block.byId[Block.GLASS.id] = new Glass(Block.GLASS.id, 49,
+					Material.SHATTERABLE, false).setHardness(0.3F)
+					.setSound(Block.j).a("glass");
 
-		Block.byId[Block.LEAVES.id] = null;
-		Block.byId[Block.LEAVES.id] = new Leaves(Block.LEAVES.id, 52)
-				.setHardness(0.2F).setSound(Block.g).a("leaves");
+			Field field = Material.SHATTERABLE.getClass().getDeclaredField("I");
+			field.setAccessible(true);
+			field.setBoolean(Material.SHATTERABLE, false);
+		}
+		if (blocks.contains(org.bukkit.Material.FENCE)) {
+			Block.byId[Block.FENCE.id] = null;
+			Block.byId[Block.FENCE.id] = new Fences(Block.FENCE.id, 4)
+					.setHardness(2.0F).setResistance(5.0F).setSound(Block.e)
+					.a("fence");
+		}
 
-		field = Material.LEAVES.getClass().getDeclaredField("I");
-		field.setAccessible(true);
-		field.setBoolean(Material.LEAVES, false);
+		if (blocks.contains(org.bukkit.Material.NETHER_FENCE)) {
+			Block.byId[Block.NETHER_FENCE.id] = null;
+			Block.byId[Block.NETHER_FENCE.id] = new Fences(
+					Block.NETHER_FENCE.id, 224, Material.STONE)
+					.setHardness(2.0F).setResistance(10.0F).setSound(Block.h)
+					.a("netherFence");
+		}
 
-		Block.lightBlock[Block.LEAVES.id] = 1;
-		Block.r[Block.LEAVES.id] = true;
+		if (blocks.contains(org.bukkit.Material.LEAVES)) {
+			Block.byId[Block.LEAVES.id] = null;
+			Block.byId[Block.LEAVES.id] = new Leaves(Block.LEAVES.id, 52)
+					.setHardness(0.2F).setSound(Block.g).a("leaves");
 
-		Block.byId[Block.NETHER_FENCE.id] = null;
-		Block.byId[Block.NETHER_FENCE.id] = new Fences(Block.NETHER_FENCE.id,
-				224, Material.STONE).setHardness(2.0F).setResistance(10.0F)
-				.setSound(Block.h).a("netherFence");
+			Field field = Material.LEAVES.getClass().getDeclaredField("I");
+			field.setAccessible(true);
+			field.setBoolean(Material.LEAVES, false);
 
-		Block.byId[Block.GLOWSTONE.id] = null;
-		Block.byId[Block.GLOWSTONE.id] = new Glowstone(Block.GLOWSTONE.id, 105,
-				Material.SHATTERABLE).setHardness(0.3F).setLightValue(1.0F)
-				.setSound(Block.j).a("lightgem");
+			Block.lightBlock[Block.LEAVES.id] = 1;
+			Block.r[Block.LEAVES.id] = true;
+		}
 
-		field = Material.SHATTERABLE.getClass().getDeclaredField("I");
-		field.setAccessible(true);
-		field.setBoolean(Material.SHATTERABLE, false);
+		if (blocks.contains(org.bukkit.Material.GLOWSTONE)) {
+			Block.byId[Block.GLOWSTONE.id] = null;
+			Block.byId[Block.GLOWSTONE.id] = new Glowstone(Block.GLOWSTONE.id,
+					105, Material.SHATTERABLE).setHardness(0.3F)
+					.setLightValue(1.0F).setSound(Block.j).a("lightgem");
 
-		Block.byId[Block.TNT.id] = null;
-		Block.byId[Block.TNT.id] = new TNT(Block.TNT.id, 8).setHardness(0.0F)
-				.setSound(Block.g).a("tnt");
+			Field field = Material.SHATTERABLE.getClass().getDeclaredField("I");
+			field.setAccessible(true);
+			field.setBoolean(Material.SHATTERABLE, false);
+		}
+		if (blocks.contains(org.bukkit.Material.TNT)) {
+			Block.byId[Block.TNT.id] = null;
+			Block.byId[Block.TNT.id] = new TNT(Block.TNT.id, 8)
+					.setHardness(0.0F).setSound(Block.g).a("tnt");
 
-		field = Material.TNT.getClass().getDeclaredField("I");
-		field.setAccessible(true);
-		field.setBoolean(Material.TNT, false);
+			Field field = Material.TNT.getClass().getDeclaredField("I");
+			field.setAccessible(true);
+			field.setBoolean(Material.TNT, false);
+		}
+		if (blocks.contains(org.bukkit.Material.THIN_GLASS)) {
+			Block.byId[Block.THIN_GLASS.id] = null;
+			Block.byId[Block.THIN_GLASS.id] = new ThinFence(
+					Block.THIN_GLASS.id, 49, 148, Material.SHATTERABLE, false)
+					.setHardness(0.3F).setSound(Block.j).a("thinGlass");
+		}
+		if (blocks.contains(org.bukkit.Material.IRON_FENCE)) {
+			Block.byId[Block.IRON_FENCE.id] = null;
+			Block.byId[Block.IRON_FENCE.id] = new ThinFence(
+					Block.IRON_FENCE.id, 85, 85, Material.ORE, true)
+					.setHardness(5.0F).setResistance(10.0F).setSound(Block.i)
+					.a("fenceIron");
+		}
+		if (blocks.contains(org.bukkit.Material.PISTON_BASE)) {
+			Block.byId[Block.PISTON.id] = null;
+			Block.byId[Block.PISTON.id] = new Piston(Block.PISTON.id, 107,
+					false).a("pistonBase");
 
-		Block.byId[Block.THIN_GLASS.id] = null;
-		Block.byId[Block.THIN_GLASS.id] = new ThinFence(Block.THIN_GLASS.id,
-				49, 148, Material.SHATTERABLE, false).setHardness(0.3F)
-				.setSound(Block.j).a("thinGlass");
+			Field field = Material.PISTON.getClass().getDeclaredField("I");
+			field.setAccessible(true);
+			field.setBoolean(Material.PISTON, false);
 
-		Block.byId[Block.IRON_FENCE.id] = null;
-		Block.byId[Block.IRON_FENCE.id] = new ThinFence(Block.IRON_FENCE.id,
-				85, 85, Material.ORE, true).setHardness(5.0F)
-				.setResistance(10.0F).setSound(Block.i).a("fenceIron");
+			Block.r[Block.PISTON.id] = true;
+			if (blocks.contains(org.bukkit.Material.PISTON_STICKY_BASE)) {
+				Block.byId[Block.PISTON_STICKY.id] = null;
+				Block.byId[Block.PISTON_STICKY.id] = new Piston(
+						Block.PISTON_STICKY.id, 106, true)
+						.a("pistonStickyBase");
 
-		Block.byId[Block.PISTON.id] = null;
-		Block.byId[Block.PISTON.id] = new Piston(Block.PISTON.id, 107, false)
-				.a("pistonBase");
+				field = Material.PISTON.getClass().getDeclaredField("I");
+				field.setAccessible(true);
+				field.setBoolean(Material.PISTON, false);
 
-		field = Material.PISTON.getClass().getDeclaredField("I");
-		field.setAccessible(true);
-		field.setBoolean(Material.PISTON, false);
-
-		Block.r[Block.PISTON.id] = true;
-
-		Block.byId[Block.PISTON_EXTENSION.id] = null;
-		Block.byId[Block.PISTON_EXTENSION.id] = new PistonExtension(
-				Block.PISTON_EXTENSION.id, 107);
-		Block.r[Block.PISTON_EXTENSION.id] = true;
-
-		Block.byId[Block.PISTON_MOVING.id] = null;
-		Block.byId[Block.PISTON_MOVING.id] = new PistonMoving(36);
-
-		Block.byId[Block.PISTON_STICKY.id] = null;
-		Block.byId[Block.PISTON_STICKY.id] = new Piston(Block.PISTON_STICKY.id,
-				106, true).a("pistonStickyBase");
-
-		field = Material.PISTON.getClass().getDeclaredField("I");
-		field.setAccessible(true);
-		field.setBoolean(Material.PISTON, false);
-
-		Block.r[Block.PISTON_STICKY.id] = true;
-
-		Block.byId[Block.PISTON_EXTENSION.id] = null;
-		Block.byId[Block.PISTON_EXTENSION.id] = new PistonExtension(
-				Block.PISTON_EXTENSION.id, 107);
-		Block.r[Block.PISTON_EXTENSION.id] = true;
-
-		Block.byId[Block.PISTON_MOVING.id] = null;
-		Block.byId[Block.PISTON_MOVING.id] = new PistonMoving(36);
-
+				Block.r[Block.PISTON_STICKY.id] = true;
+			}
+		}
 	}
+
 }

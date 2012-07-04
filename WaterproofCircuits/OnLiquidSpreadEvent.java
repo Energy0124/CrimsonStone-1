@@ -1,4 +1,4 @@
-package com.github.Icyene.ElectroStone.WaterproofCircuits;
+package com.github.Icyene.CrimsonStone.WaterproofCircuits;
 
 import java.util.EnumSet;
 

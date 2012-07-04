@@ -1,4 +1,4 @@
-package com.github.Icyene.ElectroStone.BlockOverride;
+package com.github.Icyene.CrimsonStone.BlockOverride;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

@@ -1,4 +1,4 @@
-package com.github.Icyene.ElectroStone.BlockOverride.Block;
+package com.github.Icyene.CrimsonStone.BlockOverride.Block;
 
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockFence;

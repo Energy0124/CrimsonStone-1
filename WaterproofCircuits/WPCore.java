@@ -1,13 +1,12 @@
-package com.github.Icyene.ElectroStone.WaterproofCircuits;
+package com.github.Icyene.CrimsonStone.WaterproofCircuits;
 
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.github.Icyene.ElectroStone.ElectroStone;
+import com.github.Icyene.CrimsonStone.Core;
 
 public class WPCore extends JavaPlugin {
-	public static void load(ElectroStone plugin) {
+	public static void load(Core plugin) {
 		System.out.println("-Loading WaterproofBlocks");
 		System.out.println("--Loading Listeners...");
 		try {
