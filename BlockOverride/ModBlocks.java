@@ -1,7 +1,6 @@
 package com.github.Icyene.CrimsonStone.BlockOverride;
 
 import java.lang.reflect.Field;
-
 import java.util.List;
 
 import net.minecraft.server.Block;
@@ -9,48 +8,22 @@ import net.minecraft.server.Material;
 
 import org.bukkit.plugin.Plugin;
 
-import com.github.Icyene.CrimsonStone.BlockOverride.Block.*;
-import com.github.Icyene.CrimsonStone.BlockOverride.Block.Vegetation.*;
+import com.github.Icyene.CrimsonStone.BlockOverride.Block.Fences;
+import com.github.Icyene.CrimsonStone.BlockOverride.Block.Glass;
+import com.github.Icyene.CrimsonStone.BlockOverride.Block.Glowstone;
+import com.github.Icyene.CrimsonStone.BlockOverride.Block.Leaves;
+import com.github.Icyene.CrimsonStone.BlockOverride.Block.Piston;
+import com.github.Icyene.CrimsonStone.BlockOverride.Block.TNT;
+import com.github.Icyene.CrimsonStone.BlockOverride.Block.ThinFence;
+import com.github.Icyene.CrimsonStone.Configuration.Configuration;
+
 
 public class ModBlocks {
 
-	static void fixFlowers() {
-		Block.byId[Block.YELLOW_FLOWER.id] = null;
-		Block.byId[Block.YELLOW_FLOWER.id] = new Flowers(
-				Block.YELLOW_FLOWER.id, 13).setHardness(0.0F).setSound(Block.g)
-				.a("flower");
-
-		Block.byId[Block.RED_ROSE.id] = null;
-		Block.byId[Block.RED_ROSE.id] = new Flowers(Block.RED_ROSE.id, 12)
-				.setHardness(0.0F).setSound(Block.g).a("rose");
-
-		Block.byId[Block.WATER_LILY.id] = null;
-		Block.byId[Block.WATER_LILY.id] = new WaterLily(Block.WATER_LILY.id, 76)
-				.setHardness(0.0F).setSound(Block.g).a("waterlily");
-
-		Block.byId[Block.DEAD_BUSH.id] = null;
-		Block.byId[Block.DEAD_BUSH.id] = new DeadBush(Block.DEAD_BUSH.id, 55)
-				.setHardness(0.0F).setSound(Block.g).a("deadbush");
-
-		Block.byId[Block.BROWN_MUSHROOM.id] = null;
-		Block.byId[Block.BROWN_MUSHROOM.id] = new Mushroom(
-				Block.BROWN_MUSHROOM.id, 29).setHardness(0.0F)
-				.setLightValue(0.125F).setSound(Block.g).a("mushroom");
-
-		Block.byId[Block.RED_MUSHROOM.id] = null;
-		Block.byId[Block.RED_MUSHROOM.id] = new Mushroom(Block.RED_MUSHROOM.id,
-				28).setHardness(0.0F).setSound(Block.g).a("mushroom");
-
-	}
-
 	static void modify(Plugin plugin) throws Exception {
 
-		// modBlocks = new File("modBlocks.yml");
-		// if(!modBlocks.exists()) {
-		// FileOutputStream s = new FileOutputStream(modBlocks);
-
-		List<org.bukkit.Material> blocks = Configuration.genArray(plugin);
-		System.out.println(blocks);
+		List<org.bukkit.Material> blocks = Configuration.genOverrideArray(plugin);
+		//System.out.println(blocks);
 
 		if (blocks.contains(org.bukkit.Material.GLASS)) {
 			Block.byId[Block.GLASS.id] = null;
