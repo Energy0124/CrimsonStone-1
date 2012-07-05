@@ -33,6 +33,7 @@ public class Load extends JavaPlugin {
 		plugin.getConfig().set("waterproofCircuits.poweredRail", true);
 		plugin.getConfig().set("waterproofCircuits.detectorRail", true);
 		plugin.getConfig().set("waterproofCircuits.torch", true);
+		plugin.getConfig().set("waterproofCircuits.lever", true);
 
 		plugin.saveConfig();
 	}
@@ -102,6 +103,8 @@ public class Load extends JavaPlugin {
 			waterproofArray.add(Block.DETECTOR_RAIL.id);
 		if (plugin.getConfig().getBoolean("waterproofCircuits.torch"))
 			waterproofArray.add(Block.TORCH.id);
+		if (plugin.getConfig().getBoolean("waterproofCircuits.lever"))
+			waterproofArray.add(Block.LEVER.id);
 		System.out.println("Protecting " + waterproofArray);
 		return waterproofArray;
 
