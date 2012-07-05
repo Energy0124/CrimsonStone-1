@@ -1,6 +1,6 @@
 package com.github.Icyene.CrimsonStone;
-//Dont worry about this, its a different, unrelated class
 
+//Dont worry about this, its a different, unrelated class
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,27 +13,15 @@ public class Core extends JavaPlugin {
 		System.out.println("Loading BlockOverride...");
 		Override.load(this);
 		System.out.println("Loading WaterproofCircuits...");
-		try {
-			Waterproof.load(this);
-		} catch (NoSuchFieldException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Waterproof.load(this);
 
 	}
 
 	public void onDisable() {
 		System.out.println("Unloading BlockOverride...");
 		Override.unload();
+		System.out.println("Unloading WaterproofCircuits...");
+		Waterproof.unload();
 
 	}
 

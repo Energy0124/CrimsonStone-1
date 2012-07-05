@@ -18,8 +18,7 @@ import com.github.Icyene.CrimsonStone.WaterproofCircuits.Listeners.EntityInterac
 public class Waterproof extends JavaPlugin {
 	static List<Integer> waterproofBlocks;
 
-	public static void load(Core plugin) throws NoSuchFieldException,
-			SecurityException, IllegalArgumentException, IllegalAccessException {
+	public static void load(Core plugin) {
 
 		waterproofBlocks = Load.genWaterproofArray(plugin);
 		try {
