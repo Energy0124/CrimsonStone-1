@@ -1,9 +1,8 @@
 package com.github.Icyene.CrimsonStone;
 
-//Dont worry about this, its a different, unrelated class
-
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.github.Icyene.CrimsonStone.ArmoredRedstone.Armor;
 import com.github.Icyene.CrimsonStone.BlockOverride.Override;
 import com.github.Icyene.CrimsonStone.WaterproofCircuits.Waterproof;
 
@@ -14,6 +13,8 @@ public class Core extends JavaPlugin {
 		Override.load(this);
 		System.out.println("Loading WaterproofCircuits...");
 		Waterproof.load(this);
+		System.out.println("Loading ArmoredRedstone");
+		Armor.load(this);
 
 	}
 
@@ -22,6 +23,8 @@ public class Core extends JavaPlugin {
 		Override.unload();
 		System.out.println("Unloading WaterproofCircuits...");
 		Waterproof.unload();
+		System.out.println("Unloading ArmoredRedstone");
+		Armor.unload();
 
 	}
 
