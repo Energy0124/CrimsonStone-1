@@ -23,6 +23,7 @@ public class Core extends JavaPlugin {
 		Override.unload();
 		System.out.println("Unloading WaterproofCircuits...");
 		Waterproof.unload();
+
 		System.out.println("Unloading ArmoredRedstone");
 		Armor.unload();
 

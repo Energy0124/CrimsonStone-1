@@ -1,6 +1,7 @@
 package com.github.Icyene.CrimsonStone.WaterproofCircuits;
 
 import java.io.File;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +17,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.github.Icyene.CrimsonStone.Core;
 import com.github.Icyene.CrimsonStone.Configuration.GenerateConfiguration;
 import com.github.Icyene.CrimsonStone.WaterproofCircuits.Listeners.EntityInteractEvent;
-
-//import com.github.Icyene.CrimsonStone.WaterproofCircuits.CrimsonstoneWater;
 
 public class Waterproof extends JavaPlugin {
 	static List<Integer> waterproofBlocks;
@@ -41,9 +40,6 @@ public class Waterproof extends JavaPlugin {
 
 			e.printStackTrace();
 
-			// WATER = new BlockFlowing(8,
-			// Material.WATER)).c(100F).f(3).a("water").s().j();
-
 		}
 	}
 
@@ -51,10 +47,19 @@ public class Waterproof extends JavaPlugin {
 		// set waterproof blocks to null
 		waterproofBlocks = null;
 		// now, remod.
-		modify();
+		try {
+			modify();
+		} catch (NoSuchMethodException e) {
+
+			e.printStackTrace();
+		} catch (SecurityException e) {
+
+			e.printStackTrace();
+		}
 	}
 
-	public static void modify() {
+	static void modify() throws NoSuchMethodException, SecurityException {
+
 		Block.byId[Block.WATER.id] = null;
 		Block.byId[Block.WATER.id] = ((CrimsonFlowing) (new CrimsonFlowing(8,
 				Material.WATER)).c(100F).f(3).a("water")).s().j();
@@ -63,6 +68,7 @@ public class Waterproof extends JavaPlugin {
 		Block.byId[Block.LAVA.id] = ((CrimsonFlowing) (new CrimsonFlowing(10,
 				Material.LAVA)).c(0.0F).f(255).a("lava")).s().j().a(1.0F);
 	}
+
 	public static List<Integer> genWaterproofArray(Plugin plugin) {
 		File configFile = new File(plugin.getDataFolder(), "config.yml");
 		if (!configFile.exists()) {

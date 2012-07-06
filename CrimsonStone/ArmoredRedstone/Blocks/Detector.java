@@ -1,4 +1,4 @@
-package com.github.Icyene.CrimsonStone.Blocks;
+package com.github.Icyene.CrimsonStone.ArmoredRedstone.Blocks;
 
 import net.minecraft.server.BlockMinecartDetector;
 import net.minecraft.server.StepSound;

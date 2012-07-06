@@ -5,7 +5,7 @@ import java.io.File;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
-import com.github.Icyene.CrimsonStone.Blocks.*;
+import com.github.Icyene.CrimsonStone.ArmoredRedstone.Blocks.*;
 import com.github.Icyene.CrimsonStone.Configuration.GenerateConfiguration;
 
 import net.minecraft.server.Block;

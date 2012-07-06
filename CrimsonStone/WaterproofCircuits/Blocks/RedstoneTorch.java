@@ -1,4 +1,4 @@
-package com.github.Icyene.CrimsonStone.Blocks;
+package com.github.Icyene.CrimsonStone.WaterproofCircuits.Blocks;
 
 import net.minecraft.server.BlockRedstoneTorch;
 import net.minecraft.server.StepSound;

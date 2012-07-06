@@ -13,6 +13,8 @@ import com.github.Icyene.CrimsonStone.BlockOverride.Blocks.*;
 import com.github.Icyene.CrimsonStone.Configuration.GenerateConfiguration;
 
 public class ModBlocks {
+	
+	
 
 	static void modify(Plugin plugin) throws Exception {
 
@@ -22,6 +24,9 @@ public class ModBlocks {
 			GenerateConfiguration.genConfig(plugin);
 		}
 		FileConfiguration config = plugin.getConfig();
+		
+		//System.out.println();
+		//System.out.println(Material.WATER.getClass());
 		try {
 			if (config.getBoolean("blockOverride.glass")) {
 				Block.byId[Block.GLASS.id] = null;
@@ -36,6 +41,7 @@ public class ModBlocks {
 			}
 
 			if (config.getBoolean("blockOverride.leaves")) {
+				
 				Block.byId[Block.LEAVES.id] = null;
 				Block.byId[Block.LEAVES.id] = new Leaves(Block.LEAVES.id, 52)
 						.setHardness(0.2F).setSound(Block.g).a("leaves");
@@ -80,6 +86,7 @@ public class ModBlocks {
 
 				Field glowstone = Material.SHATTERABLE.getClass()
 						.getDeclaredField("I");
+				System.out.println(glowstone);
 				glowstone.setAccessible(true);
 				glowstone.setBoolean(Material.SHATTERABLE, false);
 			}
@@ -133,11 +140,6 @@ public class ModBlocks {
 	static void forceUpdate() throws IllegalArgumentException,
 			IllegalAccessException, NoSuchFieldException, SecurityException {
 		try {
-			Block.byId[Block.GLASS.id] = Block.GLASS;
-
-			Field glass = Material.SHATTERABLE.getClass().getDeclaredField("I");
-			glass.setAccessible(true);
-			glass.setBoolean(Material.SHATTERABLE, true);
 
 			Block.byId[Block.FENCE.id] = Block.FENCE;
 
