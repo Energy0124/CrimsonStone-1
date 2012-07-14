@@ -1,10 +1,14 @@
 package com.github.Icyene.CrimsonStone.BO.Listeners;
 
+//import org.bukkit.Effect;
+//import org.bukkit.EntityEffect;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+//import org.bukkit.event.block.BlockBreakEvent;
+//import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
@@ -33,5 +37,32 @@ public class EntityHurtEvent implements Listener {
 			}
 		}
 	}
+	//
+	// @EventHandler
+	// public void onBlockPlace(BlockPlaceEvent event) {
+	//
+	// event.getBlock().getWorld()
+	// .playEffect(event.getBlock().getLocation(), Effect.SMOKE, 1);
+	//
+	// event.getBlock()
+	// .getWorld()
+	// .playEffect(event.getBlock().getLocation(), Effect.EXTINGUISH,
+	// 1);
+	//
+	// }
+	//
+	// @EventHandler
+	// public void onBlockBreak(BlockBreakEvent event) {
+	//
+	// event.getBlock()
+	// .getWorld()
+	// .playEffect(event.getBlock().getLocation(),
+	// Effect.ENDER_SIGNAL, 1);
+	// event.getBlock()
+	// .getWorld()
+	// .playEffect(event.getBlock().getLocation(),
+	// Effect.POTION_BREAK, 1);
+	//
+	// }
 
 }

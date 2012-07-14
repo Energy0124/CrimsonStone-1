@@ -19,6 +19,7 @@ public class GenerateConfiguration extends JavaPlugin {
 		config.set("blockOverride.ironBars", true);
 		config.set("blockOverride.fence", true);
 		config.set("blockOverride.netherFence", true);
+		config.set("blockOverride.ice", true);
 		// WaterproofCircuits config
 		config.set("waterproofCircuits.redstoneWire", true);
 		config.set("waterproofCircuits.redstoneTorch", true);

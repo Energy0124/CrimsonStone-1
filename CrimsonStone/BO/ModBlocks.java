@@ -106,15 +106,27 @@ public class ModBlocks {
 						.setHardness(2.0F).setResistance(10.0F)
 						.setSound(Block.h).a("netherFence");
 			}
+			if (config.getBoolean("blockOverride.ice")) {
+				Block.byId[Block.ICE.id] = null;
+				Block.byId[Block.ICE.id] = new Ice(Block.ICE.id, 67)
+						.setHardness(0.5F).setSound(Block.j).a("ice");
+
+				Field ice = Material.ICE.getClass().getDeclaredField("I");
+				ice.setAccessible(true);
+				ice.setBoolean(Material.ICE, false);
+
+				// ICE = (new BlockIce(79, 67)).c(0.5F).f(3).a(j).a("ice");
+			}
+
 			if (config.getBoolean("blockOverride.pistons")) {
 				Block.byId[Block.PISTON.id] = null;
 				Block.byId[Block.PISTON.id] = new Piston(Block.PISTON.id, 107,
 						false).a("pistonBase");
 
-//				Field pistons = Material.PISTON.getClass()
-//						.getDeclaredField("I");
-//				pistons.setAccessible(true);
-//				pistons.setBoolean(Material.PISTON, false);
+				// Field pistons = Material.PISTON.getClass()
+				// .getDeclaredField("I");
+				// pistons.setAccessible(true);
+				// pistons.setBoolean(Material.PISTON, false);
 
 				Block.r[Block.PISTON.id] = true;
 
@@ -123,9 +135,9 @@ public class ModBlocks {
 						Block.PISTON_STICKY.id, 106, true)
 						.a("pistonStickyBase");
 
-//				pistons = Material.PISTON.getClass().getDeclaredField("I");
-//				pistons.setAccessible(true);
-//				pistons.setBoolean(Material.PISTON, false);
+				// pistons = Material.PISTON.getClass().getDeclaredField("I");
+				// pistons.setAccessible(true);
+				// pistons.setBoolean(Material.PISTON, false);
 
 				Block.r[Block.PISTON_STICKY.id] = true;
 			}
@@ -174,6 +186,12 @@ public class ModBlocks {
 			Field pistons = Material.PISTON.getClass().getDeclaredField("I");
 			pistons.setAccessible(true);
 			pistons.setBoolean(Material.PISTON, true);
+
+			Block.byId[Block.ICE.id] = Block.ICE;
+
+			Field ice = Material.ICE.getClass().getDeclaredField("I");
+			ice.setAccessible(true);
+			ice.setBoolean(Material.ICE, true);
 
 		} catch (Exception e) {
 			e.printStackTrace();

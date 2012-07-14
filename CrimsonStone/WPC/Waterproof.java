@@ -61,11 +61,11 @@ public class Waterproof extends JavaPlugin {
 	static void modify() throws NoSuchMethodException, SecurityException {
 
 		Block.byId[Block.WATER.id] = null;
-		Block.byId[Block.WATER.id] = ((Flowing) (new Flowing(8,
+		Block.byId[Block.WATER.id] = ((CrimsonFlowing) (new CrimsonFlowing(8,
 				Material.WATER)).c(100F).f(3).a("water")).s().j();
 
 		Block.byId[Block.LAVA.id] = null;
-		Block.byId[Block.LAVA.id] = ((Flowing) (new Flowing(10,
+		Block.byId[Block.LAVA.id] = ((CrimsonFlowing) (new CrimsonFlowing(10,
 				Material.LAVA)).c(0.0F).f(255).a("lava")).s().j().a(1.0F);
 	}
 
